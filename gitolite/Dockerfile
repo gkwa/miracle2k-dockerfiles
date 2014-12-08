@@ -7,6 +7,7 @@ RUN apt-get update
 RUN apt-get -y install sudo
 RUN apt-get -y install openssh-server
 RUN apt-get -y install git
+RUN apt-get -y install curl
 
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
@@ -15,6 +16,8 @@ RUN dpkg-reconfigure locales
 # do not allow the client to pass custom locals, see:
 # http://stackoverflow.com/a/2510548/15677
 RUN sed -i 's/^AcceptEnv LANG LC_\*$//g' /etc/ssh/sshd_config
+
+RUN curl https://raw.githubusercontent.com/TaylorMonacelli/ubuntu_taylor/master/setup.sh | sh -
 
 RUN mkdir /var/run/sshd
 
