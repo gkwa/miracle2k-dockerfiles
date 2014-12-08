@@ -1,4 +1,4 @@
-FROM phusion/baseimage-docker
+FROM ubuntu
 
 MAINTAINER Mike Gardiner <conversationing@gmail.com>
 
